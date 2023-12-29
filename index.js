@@ -2,15 +2,13 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 try {
-  // `who-to-greet` input defined in action metadata file
-  const nameToGreet = core.getInput('who-to-greet');
-  console.log(`Hello ${nameToGreet}!`);
-  const time = (new Date()).toTimeString();
-  core.setOutput("time", time);
-  // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
-  core.setFailed("2 test cases failed in Hello world test suite")
+  // const testSuites = ["MongoDB Data API - Find Document", "MongoDB Data API - Find Multiple Documents"]
+  let testSuites = core.getInput("test-suites")
+  testSuites = testSuites.split(",")
+  for (ts of testSuites) {
+    console.log(`Running test suite ${ts}`);
+    core.setFailed(`2 test cases failed in ${ts}`)
+  }
 } catch (error) {
   core.setFailed(error.message);
 }
