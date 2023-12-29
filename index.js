@@ -7,7 +7,7 @@ try {
   testSuites = testSuites.split(",")
   for (ts of testSuites) {
     console.log(`Running test suite ${ts}`);
-    core.error(`2 test cases failed in ${ts}. [Click here](http://localhost:5173/dashboard/test-suite-report/12c743c8-e43b-4d86-a893-3213fdaf4345) for more info.`)
+    core.error(`2 test cases failed in ${ts}. Go to http://localhost:5173/dashboard/test-suite-report/12c743c8-e43b-4d86-a893-3213fdaf4345) for more info.`)
     
     core.startGroup('FAILED -> Test with wrong HTTP method')
     console.log("REASON -> Expected an error response for wrong HTTP method. Got 200 response instead.")
