@@ -1,13 +1,14 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Kusho test runner'
+description: 'Run test suites on Kusho'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
-    required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  api-key:
+    description: 'Kusho API Key'
+    required: false
+    default: 'XXXX'
+  test-suites:
+    description: 'Test suites to run'
+    required: false
+    default: 'XXXX'
 runs:
   using: 'node20'
   main: 'index.js'
