@@ -6,12 +6,13 @@ try {
   let testSuites = core.getInput("test-suites")
   testSuites = testSuites.split(",")
   for (ts of testSuites) {
-    core.setCommandEcho(`Running test suite ${ts}`);
+    console.log(`Running test suite ${ts}`);
     core.error(`2 test cases failed in ${ts}`)
     core.startGroup('More details')
-    core.setCommandEcho("TEST CASE -> Test with wrong HTTP method")
-    core.setCommandEcho("STATUS -> Failed")
-    core.setCommandEcho("DETAILS -> Expected an error response for wrong HTTP method. Got 200 response instead.")
+    console.log("TEST CASE -> Test with wrong HTTP method")
+    console.log("STATUS -> Failed")
+    console.log("DETAILS -> Expected an error response for wrong HTTP method. Got 200 response instead.")
+    console.log("")
     core.endGroup()
   }
   core.setFailed("Some test suites have failed. Check the logs for more details.")
